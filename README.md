@@ -73,7 +73,7 @@ This standalone paper introduces the foundational Real-Time Fractional Tracking 
 - Demonstrates cross-domain pattern recognition in physics, neural, and chaotic systems
 - Includes visual benchmarks and mathematical justification
 
-## RTFT (R-TFRD): Radiant Sphere Instability Detection
+## RTFT_Radiant_Sphere_Instability_Detection.pdf
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15882597.svg)](https://doi.org/10.5281/zenodo.15882597)
 
