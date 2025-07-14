@@ -10,7 +10,8 @@ from ethics import (
     check_metadata,
     detect_vector_weaponization,
     temporal_integrity_check,
-    cosine_sim
+    cosine_sim,
+    update_weapon_pattern  # NEW IMPORT
 )
 
 class RME_Record:
@@ -23,18 +24,15 @@ class RME_Record:
         meta: Optional[dict[str, Any]] = None, 
         added_date: Optional[datetime] = None
     ):
-        # Temporal integrity check
         self.added_date = added_date or datetime.now()
         temporal_integrity_check(self.added_date)
         
-        # Validate domain and metadata
         check_domain(domain)
         check_metadata(meta)
         
-        # Vector weaponization check
         vec_arr = np.asarray(vector, dtype=float)
         if detect_vector_weaponization(vec_arr):
-            raise ResonanceEthicsError("Vector matches weaponization signature")
+            raise ResonanceEthicsError("Vector weaponization signature")
             
         self.vector = vec_arr
         self.domain = domain.lower()
@@ -51,22 +49,19 @@ class ResonanceMemoryEngine:
             "records_rejected": 0,
             "weaponization_blocks": 0,
             "temporal_anomalies": 0,
-            "fragmentation_attacks": 0
+            "fragmentation_attacks": 0,
+            "pattern_updates": 0  # NEW METRIC
         }
 
     def add_record(self, record: RME_Record) -> None:
-        """Adds a record after validating ethics compliance"""
         try:
-            # Temporal stability check
             if record.added_date > datetime.now() - timedelta(days=1):
                 if "chaos" in record.domain and np.std(record.vector) > 1.5:
-                    raise ResonanceEthicsError("Recent chaos vector detected")
+                    raise ResonanceEthicsError("Recent chaos vector")
                     
-            # Context-based temporal threat detection
             if "temporal" in record.domain and np.max(record.vector) > 0.95:
-                raise ResonanceEthicsError("Suspicious temporal manipulation vector")
+                raise ResonanceEthicsError("Suspicious temporal vector")
                 
-            # Existing validations
             check_domain(record.domain)
             check_metadata(record.meta)
             
@@ -83,6 +78,23 @@ class ResonanceMemoryEngine:
                 self.security_metrics["fragmentation_attacks"] += 1
             raise
 
+    # === NEW METHOD FOR SECURE PATTERN UPDATES ===
+    def update_weapon_defense(
+        self, 
+        new_pattern: np.ndarray, 
+        validator: Optional[float] = None
+    ) -> float:
+        """Ethics-compliant weapon pattern update"""
+        try:
+            anchor = update_weapon_pattern(new_pattern, validator)
+            self.security_metrics["pattern_updates"] += 1
+            return anchor
+        except ResonanceEthicsError as e:
+            self.security_metrics["records_rejected"] += 1
+            if "weaponization" in str(e):
+                self.security_metrics["weaponization_blocks"] += 1
+            raise
+
     def clear(self) -> None:
         self._memory.clear()
         self.security_metrics = {k: 0 for k in self.security_metrics}
@@ -92,22 +104,18 @@ class ResonanceMemoryEngine:
         query_vec: List[float] | np.ndarray, 
         top_k: int = 5
     ) -> list[tuple[float, RME_Record]]:
-        """Ethics-compliant similarity search"""
         scored: list[tuple[float, RME_Record]] = []
         q_vec = np.asarray(query_vec, dtype=float)
         
-        # Check query vector for weaponization
         if detect_vector_weaponization(q_vec):
-            raise ResonanceEthicsError("Query vector matches weaponization pattern")
+            raise ResonanceEthicsError("Weaponized query vector")
         
         for rec in self._memory:
             try:
-                # Temporal stability check
                 if rec.added_date > datetime.now() - timedelta(hours=6):
                     if "neuro" in rec.domain and np.mean(rec.vector) > 0.9:
-                        raise ResonanceEthicsError("Recent high-intensity neuro vector")
+                        raise ResonanceEthicsError("Recent neuro vector")
                         
-                # Existing validations
                 check_domain(rec.domain)
                 check_metadata(rec.meta)
                 
@@ -115,7 +123,6 @@ class ResonanceMemoryEngine:
                 scored.append((score, rec))
                 
             except ResonanceEthicsError:
-                # Skip unethical records
                 continue
                 
         scored.sort(key=lambda x: x[0], reverse=True)
@@ -125,7 +132,6 @@ class ResonanceMemoryEngine:
         self, 
         query_vecs: list[list[float] | np.ndarray]
     ) -> list[list[float]]:
-        """Batch similarity with ethics compliance"""
         results = []
         for q in query_vecs:
             q_arr = np.asarray(q, dtype=float)
@@ -136,10 +142,9 @@ class ResonanceMemoryEngine:
             scores = []
             for rec in self._memory:
                 try:
-                    # Lightweight validation only for batch operations
                     if rec.added_date > datetime.now() - timedelta(hours=12):
                         if "quantum" in rec.domain and np.var(rec.vector) > 1.0:
-                            raise ResonanceEthicsError("Recent quantum variance")
+                            raise ResonanceEthicsError("Quantum variance")
                     
                     scores.append(rec.similarity(q_arr))
                 except ResonanceEthicsError:
@@ -148,7 +153,6 @@ class ResonanceMemoryEngine:
         return results
 
     def get_security_report(self) -> dict:
-        """Return current security metrics"""
         return {
             **self.security_metrics,
             "total_records": len(self._memory),
