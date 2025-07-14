@@ -57,6 +57,18 @@ To handle noise and systemic drift, the method uses:
 - Demonstrates cross-domain pattern recognition in physics, neural, and chaotic systems
 - Includes visual benchmarks and mathematical justification
 
+## R_TFT_Dimensional_Memory.pdf
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15878258.svg)](https://doi.org/10.5281/zenodo.15878258)
+
+- Memory indexing by domain, dimension, and resonance vector
+- Real-time similarity search using cosine coherence
+- Lightweight, modular design (no heavy dependencies)
+- Compatible with all multi-vector R-TFT tracking outputs
+- Cross-domain signal recall (e.g., orbital, neural, quantum)
+- Temporal pattern matching and coherence classification
+- Dynamical fingerprinting of phase-locked systems
+
 ## R_TFT_Dimensionality_Detection_Experiment.pdf
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15857168.svg)](https://doi.org/10.5281/zenodo.15857168)
