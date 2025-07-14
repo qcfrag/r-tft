@@ -38,8 +38,14 @@ To handle noise and systemic drift, the method uses:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15872338.svg)](https://doi.org/10.5281/zenodo.15872338)
 
-- Contain the full published paper.
-  
+This standalone paper introduces the foundational Real-Time Fractional Tracking (R-TFT) method.
+- Scalar resonance projection: R(t) = (Ṡ(t) · P) / ||P||
+- Real-time detection of phase-locking in dynamical systems
+- Adaptive noise subtraction for robustness in noisy environments
+- Validated on orbital, quantum, neural, and chaotic systems
+- Includes basic pseudocode and analytical derivation
+- Built-in falsifiability tests and cross-domain validation
+ 
 ## r_tft.py
 
 - Core Python implementation of the R-TFT algorithm
