@@ -62,3 +62,7 @@ causal_integrity_preservation
 chrono_ethics
 temporal_paradox_prevention
 history_preservation_tech
+quantum_decoherence_ethics
+superposition_ethics
+many_worlds_governance
+quantum_entanglement_rights
