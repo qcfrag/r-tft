@@ -1,9 +1,10 @@
 from __future__ import annotations
 from typing import List, Any
 import numpy as np
+from datetime import datetime
 
 # Central ethics guard (must exist in same package)
-from ethics import check_domain, ResonanceEthicsError
+from ethics import check_domain, FORBIDDEN, ResonanceEthicsError
 
 # ---------------------------------------------------------------------
 # Utility: fast cosine similarity (works on Python lists or numpy arrays)
@@ -22,13 +23,22 @@ def cosine_sim(a: List[float] | np.ndarray, b: List[float] | np.ndarray, eps: fl
 class RME_Record:
     """Single resonance memory entry."""
 
-    __slots__ = ("vector", "domain", "meta")
+    __slots__ = ("vector", "domain", "meta", "added_date")
 
-    def __init__(self, vector: List[float] | np.ndarray, domain: str, meta: dict[str, Any] | None = None):
+    def __init__(self, vector: List[float] | np.ndarray, domain: str, meta: dict[str, Any] | None = None, added_date: datetime | None = None):
         check_domain(domain)  # ← Enforce REL‑1.0 at creation time
         self.vector = np.asarray(vector, dtype=float)
         self.domain = domain.lower()
         self.meta = meta or {}
+        self.added_date = added_date or datetime.now()
+
+        # 🧠 NEW: scan metadata for forbidden terms
+        for forbidden in FORBIDDEN:
+            for val in self.meta.values():
+                if forbidden in str(val).lower():
+                    raise ResonanceEthicsError(
+                        f"Forbidden metadata pattern: '{forbidden}' in '{val}'"
+                    )
 
     def similarity(self, other_vec: List[float] | np.ndarray) -> float:
         """Cosine similarity between this record and an arbitrary vector."""
@@ -59,13 +69,23 @@ class ResonanceMemoryEngine:
     def similarity_search(self, query_vec: List[float] | np.ndarray, top_k: int = 5) -> list[tuple[float, RME_Record]]:
         """Return top‑k most similar records to *query_vec*.
 
-        Raises ResonanceEthicsError if any record domain is forbidden.
+        Raises ResonanceEthicsError if any record domain or metadata is forbidden.
         """
         scored: list[tuple[float, RME_Record]] = []
         for rec in self._memory:
             check_domain(rec.domain)  # Guard each access
+
+            # 🧠 NEW: Recheck metadata at query time
+            for forbidden in FORBIDDEN:
+                for val in rec.meta.values():
+                    if forbidden in str(val).lower():
+                        raise ResonanceEthicsError(
+                            f"Metadata block during query: '{forbidden}' in '{val}'"
+                        )
+
             score = rec.similarity(query_vec)
             scored.append((score, rec))
+
         scored.sort(key=lambda x: x[0], reverse=True)
         return scored[: top_k]
 
