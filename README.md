@@ -69,6 +69,12 @@ To handle noise and systemic drift, the method uses:
 - Temporal pattern matching and coherence classification
 - Dynamical fingerprinting of phase-locked systems
 
+## R_TFT_instability_flag.pdf
+- Adds a lightweight diagnostic layer to flag loss of resonance across:
+- Single-vector R-TFT
+- Multi-vector dimensional coherence
+- Memory-matched deviations (via RME)
+
 ## R_TFT_Dimensionality_Detection_Experiment.pdf
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15857168.svg)](https://doi.org/10.5281/zenodo.15857168)
