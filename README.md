@@ -1,6 +1,13 @@
+**You may contact me by email at qcfrag@gmail.com**
+
+## 📄 Citation & Download
+
+Real-Time Fractional Tracking (R-TFT)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15872338.svg)](https://doi.org/10.5281/zenodo.15872338)
 
-You may contact me by email at qcfrag@gmail.com
+R-TFT: Emergent Dimensionality from Golden Ratio Attractor 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15857168.svg)](https://doi.org/10.5281/zenodo.15857168)
+
 
 ## 📘 Summary
 R-TFT is a real-time method for detecting and tracking resonance in arbitrary n-body systems by projecting angular velocity vectors onto fractional resonance templates. This enables detection of non-integer locking behaviors, applicable from planetary orbits to quantum systems.
