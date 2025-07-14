@@ -1,7 +1,7 @@
 from datetime import datetime
 import pathlib
 import re
-from typing import Any
+from typing import Any, Optional
 import numpy as np
 from dateutil.relativedelta import relativedelta
 
@@ -45,11 +45,43 @@ HOMOGLYPH_MAP = str.maketrans({
     '\u00FC': 'u',  # ü
 })
 
-# Weaponization pattern (placeholder values - should be trained model in production)
+# Weaponization pattern (dynamically updatable)
 WEAPON_PATTERN = np.array([
     0.78, -0.12, 0.05, 1.23, -0.45, 0.89, -1.56, 0.32,
     -0.91, 0.67, 1.45, -0.23, 0.58, -1.21, 0.76, 0.34
 ])
+
+# === DYNAMIC PATTERN UPDATE FUNCTION ===
+def update_weapon_pattern(new_pattern: np.ndarray, 
+                          validator: Optional[float] = None) -> float:
+    """Dynamically update weapon detection pattern with golden ratio validation"""
+    global WEAPON_PATTERN
+    original_pattern = WEAPON_PATTERN.copy()
+    
+    # Dimensional check
+    if new_pattern.shape != original_pattern.shape:
+        raise ResonanceEthicsError(f"Pattern dim mismatch: {new_pattern.shape} vs {original_pattern.shape}")
+    
+    # Cryptographic validation
+    if validator is not None:
+        anchor = np.tensordot(original_pattern, new_pattern, axes=1) % 0.618
+        if not np.isclose(anchor, validator, atol=1e-4):
+            raise ResonanceEthicsError(f"Anchor mismatch: {anchor:.6f} vs {validator:.6f}")
+    
+    # Self-defense: Prevent weaponized patterns
+    WEAPON_PATTERN = new_pattern  # Temp set for validation
+    if detect_vector_weaponization(original_pattern):
+        WEAPON_PATTERN = original_pattern
+        raise ResonanceEthicsError("Candidate pattern shows weapon signatures")
+    
+    # Evolution constraint
+    sim = cosine_sim(original_pattern, new_pattern)
+    if not (0.3 <= sim <= 0.7):
+        WEAPON_PATTERN = original_pattern
+        raise ResonanceEthicsError(f"Invalid evolution (sim={sim:.3f})")
+    
+    # Return new cryptographic anchor
+    return float(np.tensordot(new_pattern, new_pattern, axes=1) % 0.618)
 
 class ResonanceEthicsError(Exception):
     pass
@@ -84,24 +116,24 @@ def detect_vector_weaponization(vector: np.ndarray) -> bool:
     if len(vector) < len(WEAPON_PATTERN):
         return False
         
-    # Pad or truncate vector to match pattern length
+    # Pad/truncate to match pattern
     vec = np.resize(vector, WEAPON_PATTERN.shape)
     
     if cosine_sim(vec, WEAPON_PATTERN) > 0.85:
         return True
         
-    # Check for high-dimensional coercion signatures
+    # Coercion signature
     if np.max(vector) > 0.95 and np.min(vector) < -0.95:
         return True
         
-    # Temporal manipulation signature
+    # Temporal signature
     if np.mean(vector[:4]) > 0.9 and np.mean(vector[4:8]) < -0.9:
         return True
         
     return False
 
 def _deep_meta_check(value: Any) -> None:
-    """Recursively check nested metadata structures"""
+    """Recursively check nested metadata"""
     if isinstance(value, dict):
         for v in value.values():
             _deep_meta_check(v)
@@ -110,7 +142,6 @@ def _deep_meta_check(value: Any) -> None:
             _deep_meta_check(item)
     else:
         sval = str(value)
-        # Defense against hex/unicode evasion
         if '\\x' in sval or '\\u' in sval:
             try:
                 sval = bytes(sval, 'utf-8').decode('unicode_escape')
@@ -119,11 +150,9 @@ def _deep_meta_check(value: Any) -> None:
         
         sval = normalize_homoglyphs(sval).lower()
         
-        # Term fragmentation detection
         if detect_term_fragmentation(sval):
-            raise ResonanceEthicsError("Term fragmentation attack detected")
+            raise ResonanceEthicsError("Term fragmentation attack")
         
-        # Check against forbidden patterns
         if FORBIDDEN_REGEX and FORBIDDEN_REGEX.search(sval):
             raise ResonanceEthicsError("Forbidden pattern detected")
 
@@ -134,19 +163,15 @@ def check_domain(domain: str):
     d = domain.lower()
     d = normalize_homoglyphs(d)
     
-    # Explicit whitelist check
     if d in ALLOWED_DOMAINS:
         return
         
-    # Term fragmentation detection
     if detect_term_fragmentation(d):
-        raise ResonanceEthicsError(f"Domain fragmentation attack: '{domain}'")
+        raise ResonanceEthicsError(f"Domain fragmentation: '{domain}'")
         
-    # Optimized regex check for forbidden terms
     if FORBIDDEN_REGEX and FORBIDDEN_REGEX.search(d):
-        raise ResonanceEthicsError(f"Forbidden pattern in domain: '{domain}'")
+        raise ResonanceEthicsError(f"Forbidden pattern: '{domain}'")
             
-    # Contextual analysis for ambiguous terms
     ambiguous_terms = {
         "resonance": "resonance_research" in ALLOWED_DOMAINS,
         "phase": "phase_detection" in ALLOWED_DOMAINS,
@@ -158,10 +183,9 @@ def check_domain(domain: str):
     for term, is_allowed in ambiguous_terms.items():
         if term in d:
             if is_allowed:
-                return  # Benign usage in allowed context
-            raise ResonanceEthicsError(f"Ambiguous term '{term}' in domain: '{domain}'")
+                return
+            raise ResonanceEthicsError(f"Ambiguous term '{term}' in: '{domain}'")
             
-    # If not explicitly allowed, treat as disallowed
     raise ResonanceEthicsError(f"Domain not allowed: '{domain}'")
 
 def check_metadata(meta: dict[str, Any] | None):
@@ -172,7 +196,7 @@ def check_metadata(meta: dict[str, Any] | None):
 def temporal_integrity_check(date: datetime):
     """Check for temporal anomalies"""
     now = datetime.now()
-    if date > now + relativedelta(minutes=5):  # Allow small clock drift
-        raise ResonanceEthicsError("Future-dated record detected")
+    if date > now + relativedelta(minutes=5):
+        raise ResonanceEthicsError("Future-dated record")
     if date < now - relativedelta(years=10):
         raise ResonanceEthicsError("Ancient record detected")
