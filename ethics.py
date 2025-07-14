@@ -1,53 +1,45 @@
-# -------- 1. Positive whitelist (only these domains allowed) ----------
-ALLOWED_DOMAINS = {
-    "scientific",
-    "educational",
-    "philosophical",
-    "astrophysics",
-    "neuroscience",
-    "quantum_computing",
-    "orbital_mechanics",
-    "pure_mathematics",
-}
+import pathlib
 
-# -------- 2. Hard block-list keywords (instant rejection) -------------
-FORBIDDEN_KEYWORDS = {
-    "military",
-    "weapon",
-    "surveillance",
-    "financial_trading",
-    "social_control",
-    "time_travel",
-    "bioweapon",
-    "darpa",          # matches DARPA or darpa
-    "harmful",
-    "exploit",
+BLOCK_DIR = pathlib.Path(__file__).with_suffix('').parent
+
+def _load_list(fname):
+    path = BLOCK_DIR / fname
+    if not path.exists():
+        return set()
+    raw = path.read_text(encoding="utf8").splitlines()
+    return {line.strip().lower() for line in raw if line.strip()}
+
+FORBIDDEN = (
+    _load_list("forbidden_domains.txt")
+    | _load_list("forbidden_companies.txt")
+    | _load_list("forbidden_keywords.txt")
+)
+
+ALLOWED_DOMAINS = {
+    "scientific", "educational", "philosophical",
+    "astrophysics", "neuroscience",
+    # …add positive labels here…
 }
 
 class ResonanceEthicsError(RuntimeError):
-    """Raised when a REL-1.0 violation is detected."""
+    pass
 
-
-# -------- 3. Central gatekeeper --------------------------------------
 def check_domain(domain: str):
-    """
-    Enforce REL-1.0:
-    1) Domain must be in the positive whitelist.
-    2) Domain text must NOT contain any forbidden keyword.
-    """
     d = (domain or "").lower()
 
-    # Block if keyword appears anywhere
-    for bad in FORBIDDEN_KEYWORDS:
-        if bad in d:
+    # 1) explicit whitelist check (positive allow)
+    if d in ALLOWED_DOMAINS:
+        return
+
+    # 2) full-string and substring block
+    for bad in FORBIDDEN:
+        if bad and bad in d:
             raise ResonanceEthicsError(
-                f"REL-1.0 violation: keyword '{bad}' found in domain '{domain}'. "
-                "Use is forbidden."
+                f"REL-1.0 violation: '{bad}' matched in domain '{domain}'. "
+                "Operation aborted."
             )
 
-    # Require explicit whitelist membership
-    if d not in ALLOWED_DOMAINS:
-        raise ResonanceEthicsError(
-            f"REL-1.0 violation: domain '{domain}' not in allowed list.\n"
-            f"Allowed domains: {sorted(ALLOWED_DOMAINS)}"
-        )
+    # 3) if not explicitly allowed, treat as disallowed
+    raise ResonanceEthicsError(
+        f"REL-1.0 violation: domain '{domain}' is not in allowed list."
+    )
