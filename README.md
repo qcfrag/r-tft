@@ -73,6 +73,19 @@ This standalone paper introduces the foundational Real-Time Fractional Tracking 
 - Demonstrates cross-domain pattern recognition in physics, neural, and chaotic systems
 - Includes visual benchmarks and mathematical justification
 
+## RTFT (R-TFRD): Radiant Sphere Instability Detection
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15882597.svg)](https://doi.org/10.5281/zenodo.15882597)
+
+- Introduces a novel method to detect and regulate instabilities in complex dynamical systems in real time.
+- Projects reduced angular velocity vectors onto normalized fractional resonance vectors, defining a radiant spherical boundary in phase space.
+- Detects both sharp integer-boundary breaches and subtle fractional excursions with ultra-low latency and high noise robustness.
+- Adaptively regulates outbound resonance excursions, enabling early prediction and classification of transient, stable, or chaotic system states.
+- Applicable across domains: planetary orbital mechanics, quantum systems, neural oscillations, and more.
+- Balances rigorous mathematics with intuitive understanding for broad accessibility.
+- Includes embedded ethical safeguards to prevent misuse and weaponization.
+- Empowers researchers with a clear, elegant tool to uncover and manage the hidden coherence behind chaos.
+
 ## R_TFT_Dimensional_Memory.pdf
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15882324.svg)](https://doi.org/10.5281/zenodo.15882324)
