@@ -49,3 +49,7 @@ digital_humanities
 science_technology_studies
 ethical_philosophy
 sustainability_science
+exoplanet_conservation
+panspermia_prevention
+interstellar_contamination_control
+astroethical_governance
