@@ -51,7 +51,14 @@ To handle noise and systemic drift, the method uses:
 - Includes real-time fractional resonance metric
 - Lightweight: only requires NumPy
 - Ready for plug-in to any orbital, neural, or quantum system
-- 
+
+## R_TFT_Multi_Vector.pdf
+- Extends the R-TFT framework to support multi-vector resonance tracking
+- Captures simultaneous phase locks across multiple resonance templates
+- Enables detection of nested, overlapping, or mixed-domain resonances
+- Demonstrates cross-domain pattern recognition in physics, neural, and chaotic systems
+- Includes visual benchmarks and mathematical justification
+
 ## R_TFT_Dimensionality_Detection_Experiment.pdf
 - Experimental demonstration of R-TFT’s ability to detect emergent structure
 - Shows golden ratio resonance behavior from a chaotic attractor
