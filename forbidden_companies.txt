@@ -33,3 +33,13 @@ ibm_quantum_warfare
 nvidia_tactical_ai
 meta_social_domination
 tiktok_behavior_weapons
+anthropic_tactical
+stability_warfare
+midjourney_tactical
+huggingface_defense
+cerebras_military
+graphcore_warfare
+somatic_weapons
+neurotech_combat
+biomind_weapons
+cognitex_military
