@@ -1,3 +1,8 @@
+from datetime import datetime
+
+# Date when forbidden lists were last updated
+ethics_update_date = datetime(2025, 7, 14)  # ← Set this to your latest revision date
+
 import pathlib
 
 BLOCK_DIR = pathlib.Path(__file__).with_suffix('').parent
