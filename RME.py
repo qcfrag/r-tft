@@ -1,4 +1,11 @@
-def similarity_search(query, corpus):
-    if corpus.domain in ["military", "financial"]:
-        raise EthicsViolation("REL-1.0: Forbidden domain")
-    return cosine_sim(query, corpus)
+# Define ethical domains (REL-1.0 compliant)  
+ETHICAL_DOMAINS = {  
+    "astrophysics", "neuroscience", "quantum_computing",  
+    "orbital_mechanics", "pure_mathematics"  
+}  
+
+# Define forbidden domains (REL-1.0 violations)  
+FORBIDDEN_DOMAINS = {  
+    "military", "surveillance", "financial_trading",  
+    "social_control", "weaponized_AI"  
+}  
