@@ -46,7 +46,7 @@ To handle noise and systemic drift, the method uses:
 
 ## R-TFT_Complete.pdf
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15872338.svg)](https://doi.org/10.5281/zenodo.15872338)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15882388.svg)](https://doi.org/10.5281/zenodo.15882388)
 
 This standalone paper introduces the foundational Real-Time Fractional Tracking (R-TFT) method.
 - Scalar resonance projection: R(t) = (Ṡ(t) · P) / ||P||
@@ -65,7 +65,7 @@ This standalone paper introduces the foundational Real-Time Fractional Tracking 
 
 ## R_TFT_Multi_Vector.pdf
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15877517.svg)](https://doi.org/10.5281/zenodo.15877517)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15882354.svg)](https://doi.org/10.5281/zenodo.15882354)
 
 - Extends the R-TFT framework to support multi-vector resonance tracking
 - Captures simultaneous phase locks across multiple resonance templates
@@ -75,7 +75,7 @@ This standalone paper introduces the foundational Real-Time Fractional Tracking 
 
 ## R_TFT_Dimensional_Memory.pdf
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15878258.svg)](https://doi.org/10.5281/zenodo.15878258)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15882324.svg)](https://doi.org/10.5281/zenodo.15882324)
 
 - Memory indexing by domain, dimension, and resonance vector
 - Real-time similarity search using cosine coherence
@@ -93,7 +93,7 @@ This standalone paper introduces the foundational Real-Time Fractional Tracking 
 
 ## R_TFT_Dimensionality_Detection_Experiment.pdf
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15857168.svg)](https://doi.org/10.5281/zenodo.15857168)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15882367.svg)](https://doi.org/10.5281/zenodo.15882367)
 
 - Experimental demonstration of R-TFT’s ability to detect emergent structure
 - Shows golden ratio resonance behavior from a chaotic attractor
