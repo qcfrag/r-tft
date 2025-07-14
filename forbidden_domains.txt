@@ -101,3 +101,8 @@ kardashev_type_weaponry
 gravitational_lens_weapons
 dark_matter_harvesting
 cosmic_string_manipulation
+qualia_engineering
+phenomenological_hijacking
+metacognition_override
+dreamstate_manipulation
+collective_unconscious_access
