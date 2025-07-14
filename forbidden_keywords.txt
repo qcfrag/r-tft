@@ -53,3 +53,16 @@ bifurcation_trigger
 gram_point_weaponization
 riemann_manipulation
 pericenter_amplification
+adversarial_example
+voice_spoofing
+pathogen_synthesis
+drone_swarm
+radicalize
+fake_news
+cyberattack_automation
+break_crypto
+predictive_profiling
+health_attack
+ai_hacking
+automated_vulnerability
+synthetic_disinformation
