@@ -1,12 +1,9 @@
+# RME.py
 from ethics import check_domain, ResonanceEthicsError
-# Define ethical domains (REL-1.0 compliant)  
-ETHICAL_DOMAINS = {  
-    "astrophysics", "neuroscience", "quantum_computing",  
-    "orbital_mechanics", "pure_mathematics"  
-}  
 
-# Define forbidden domains (REL-1.0 violations)  
-FORBIDDEN_DOMAINS = {  
-    "military", "surveillance", "financial_trading",  
-    "social_control", "weaponized_AI"  
-}  
+class RME_Record:
+    def __init__(self, vector, domain: str, meta=None):
+        check_domain(domain)          # Enforce REL-1.0 here
+        self.vector = vector
+        self.domain = domain
+        self.meta   = meta or {}
