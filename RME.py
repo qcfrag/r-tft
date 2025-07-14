@@ -1,3 +1,4 @@
+from ethics import check_domain, ResonanceEthicsError
 # Define ethical domains (REL-1.0 compliant)  
 ETHICAL_DOMAINS = {  
     "astrophysics", "neuroscience", "quantum_computing",  
