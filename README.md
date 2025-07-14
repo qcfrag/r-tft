@@ -1,5 +1,5 @@
 You may contact me by email at qcfrag@gmail.com
-- Genuine interest, No publicity or destructive talks, not here to get known ty.
+- Genuine interest, no publicity or destructive talks, not here to get known ty.
   
 # R-TFT_Complete.pdf
 - Contain the full published paper.
