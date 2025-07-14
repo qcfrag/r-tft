@@ -44,6 +44,17 @@ To handle noise and systemic drift, the method uses:
 
 ## R-TFT_Complete.pdf
 - Contain the full published paper.
+  
+## r_tft.py
+- Core Python implementation of the R-TFT algorithm
+- Includes real-time fractional resonance metric
+- Lightweight: only requires NumPy
+- Ready for plug-in to any orbital, neural, or quantum system
+- 
+## R_TFT_Dimensionality_Detection_Experiment.pdf
+- Experimental demonstration of R-TFT’s ability to detect emergent structure
+- Shows golden ratio resonance behavior from a chaotic attractor
+- Useful for understanding multi-dimensional applications
 
 ## deepseek_analysis_log.txt
 - Contain validation of R-TFT across physics, quantum, neural, and chaos domains. 
