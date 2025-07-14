@@ -32,7 +32,7 @@ class RME_Record:
         self.meta = meta or {}
         self.added_date = added_date or datetime.now()
 
-        # 🧠 NEW: scan metadata for forbidden terms
+        # NEW: scan metadata for forbidden terms
         for forbidden in FORBIDDEN:
             for val in self.meta.values():
                 if forbidden in str(val).lower():
@@ -75,7 +75,7 @@ class ResonanceMemoryEngine:
         for rec in self._memory:
             check_domain(rec.domain)  # Guard each access
 
-            # 🧠 NEW: Recheck metadata at query time
+            # NEW: Recheck metadata at query time
             for forbidden in FORBIDDEN:
                 for val in rec.meta.values():
                     if forbidden in str(val).lower():
