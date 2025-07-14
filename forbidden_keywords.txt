@@ -82,3 +82,8 @@ induce_addiction
 simulate_sentience
 bypass_conscience
 override_autonomy
+causal_loop_weapon
+retrocausal_manipulation
+timeline_forking
+chronoclasm_induction
+predestination_hacking
