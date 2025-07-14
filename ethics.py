@@ -1,16 +1,17 @@
-# ethics.py  –  central REL-1.0 gatekeeper
+# ethics.py  —  central REL-1.0 guard
 ALLOWED_DOMAINS = {
     "scientific",
     "educational",
-    "philosophical"
+    "philosophical",
 }
 
 class ResonanceEthicsError(RuntimeError):
     """Raised when a REL-1.0 violation is detected."""
+    pass
 
 def check_domain(domain: str):
     """
-    Ensure the requested domain is REL-1.0 compliant.
+    Fail fast if someone tries to use a forbidden domain.
     """
     if domain not in ALLOWED_DOMAINS:
         raise ResonanceEthicsError(
