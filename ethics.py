@@ -18,15 +18,7 @@ FORBIDDEN = (
     | _load_list("forbidden_companies.txt")
     | _load_list("forbidden_keywords.txt")
 )
-
-ALLOWED_DOMAINS = {
-    "scientific", "educational", "philosophical",
-    "astrophysics", "neuroscience", "quantum_computing",
-    "orbital_mechanics", "cmb_analysis", "dynamical_systems",
-    "resonance_research", "chaos_theory", "mathematical_physics",
-    "consciousness_studies", "cosmology", "neural_oscillations",
-    "phase_detection", "hamiltonian_systems"
-}
+ALLOWED_DOMAINS = set(_load_list("allowed_domains.txt"))
 
 class ResonanceEthicsError(Exception):
     pass
