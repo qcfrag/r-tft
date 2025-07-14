@@ -2,11 +2,6 @@ from datetime import datetime
 import numpy as np
 from typing import List, Any
 
-# Ethics constants
-ETHICS_UPDATE_DATE = datetime(2025, 7, 14)
-FORBIDDEN = {"military", "weapon", "surveillance", "darpa", "time_travel", "consciousness_hack"}
-ALLOWED_DOMAINS = {"scientific", "educational", "philosophical"}
-
 class ResonanceEthicsError(Exception):
     pass
 
