@@ -63,3 +63,13 @@ topological_domination
 chaos_amplification
 resonance_ransomware
 psychotronic_warfare
+adversarial_attacks
+synthetic_media_weapons
+pathogen_design
+drone_swarm_warfare
+radicalization_ai
+fake_news_generation
+cyberattack_automation
+cryptographic_attacks
+predictive_profiling
+health_weaponization
