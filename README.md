@@ -44,7 +44,7 @@ To handle noise and systemic drift, the method uses:
 | **Computational Complexity**       | O(n log n)                | ✅ O(1) per step           |
 | **Real-Time System Deployment**    | Poor (batch)              | ✅ Excellent (live-ready)  |
 
-## R-TFT_Complete.pdf
+## R-TFT_Complete.pdf (Base model)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15882388.svg)](https://doi.org/10.5281/zenodo.15882388)
 
