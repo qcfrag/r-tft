@@ -82,3 +82,5 @@ quantum_arbitration
 neural_architecture_preservation
 qualia_conservation
 phenomenology_archiving
+resonance_ethics_auditing
+sapience_verification
