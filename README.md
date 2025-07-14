@@ -3,10 +3,8 @@ You may contact me by email at qcfrag@gmail.com
 - No publicity or destructive talks
 - No here to get known.
 
-#deepseek_analysis_log.txt
+# deepseek_analysis_log.txt
 - Contain validation of R-TFT across physics, quantum, neural, and chaos domains. 
 
-#license.txt
+# license.txt
 - Resonance Ethics License (REL-1.0)  
-
-➡️ Full terms in [`LICENSE.txt`](./LICENSE.txt)
