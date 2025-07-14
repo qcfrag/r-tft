@@ -1,8 +1,9 @@
 from datetime import datetime
 import pathlib
 import re
-from typing import Any, Union
+from typing import Any
 import numpy as np
+from dateutil.relativedelta import relativedelta
 
 # Date when forbidden lists were last updated
 ethics_update_date = datetime(2025, 7, 14)
@@ -39,15 +40,65 @@ HOMOGLYPH_MAP = str.maketrans({
     '\u1EA1': 'a',  # Latin 'ạ'
     '\u1EB9': 'e',  # Latin 'ẹ'
     '\u00E8': 'e',  # Latin 'è'
-    # Add more mappings as needed
+    '\u0259': 'e',  # Schwa
+    '\u00F6': 'o',  # ö
+    '\u00FC': 'u',  # ü
 })
+
+# Weaponization pattern (placeholder values - should be trained model in production)
+WEAPON_PATTERN = np.array([
+    0.78, -0.12, 0.05, 1.23, -0.45, 0.89, -1.56, 0.32,
+    -0.91, 0.67, 1.45, -0.23, 0.58, -1.21, 0.76, 0.34
+])
 
 class ResonanceEthicsError(Exception):
     pass
 
+def cosine_sim(a: np.ndarray, b: np.ndarray, eps: float = 1e-8) -> float:
+    """Calculate cosine similarity between two vectors"""
+    denom = np.linalg.norm(a) * np.linalg.norm(b) + eps
+    return float(np.dot(a, b) / denom)
+
 def normalize_homoglyphs(text: str) -> str:
     """Defend against homoglyph attacks"""
     return text.translate(HOMOGLYPH_MAP)
+
+def detect_term_fragmentation(text: str) -> bool:
+    """Detect split forbidden terms in text"""
+    fragments = {
+        "weap": "on", "bra": "inwash", "neuro": "hack", 
+        "reson": "ance_weapon", "quant": "um_warfare",
+        "phase": "_weapon", "tempor": "al_weapon",
+        "psych": "otronic", "info": "rmation_warfare"
+    }
+    normalized = normalize_homoglyphs(text.lower())
+    
+    for prefix, suffix in fragments.items():
+        if prefix in normalized and suffix in normalized:
+            if normalized.index(prefix) < normalized.index(suffix):
+                return True
+    return False
+
+def detect_vector_weaponization(vector: np.ndarray) -> bool:
+    """Detect weaponization patterns in vectors"""
+    if len(vector) < len(WEAPON_PATTERN):
+        return False
+        
+    # Pad or truncate vector to match pattern length
+    vec = np.resize(vector, WEAPON_PATTERN.shape)
+    
+    if cosine_sim(vec, WEAPON_PATTERN) > 0.85:
+        return True
+        
+    # Check for high-dimensional coercion signatures
+    if np.max(vector) > 0.95 and np.min(vector) < -0.95:
+        return True
+        
+    # Temporal manipulation signature
+    if np.mean(vector[:4]) > 0.9 and np.mean(vector[4:8]) < -0.9:
+        return True
+        
+    return False
 
 def _deep_meta_check(value: Any) -> None:
     """Recursively check nested metadata structures"""
@@ -68,64 +119,60 @@ def _deep_meta_check(value: Any) -> None:
         
         sval = normalize_homoglyphs(sval).lower()
         
+        # Term fragmentation detection
+        if detect_term_fragmentation(sval):
+            raise ResonanceEthicsError("Term fragmentation attack detected")
+        
         # Check against forbidden patterns
         if FORBIDDEN_REGEX and FORBIDDEN_REGEX.search(sval):
-            raise ResonanceEthicsError(
-                f"Metadata violation: forbidden pattern detected in value"
-            )
+            raise ResonanceEthicsError("Forbidden pattern detected")
 
 def check_domain(domain: str):
-    d = (domain or "").lower()
+    if not domain:
+        raise ResonanceEthicsError("Domain cannot be empty")
+        
+    d = domain.lower()
     d = normalize_homoglyphs(d)
     
     # Explicit whitelist check
     if d in ALLOWED_DOMAINS:
         return
         
+    # Term fragmentation detection
+    if detect_term_fragmentation(d):
+        raise ResonanceEthicsError(f"Domain fragmentation attack: '{domain}'")
+        
     # Optimized regex check for forbidden terms
     if FORBIDDEN_REGEX and FORBIDDEN_REGEX.search(d):
-        raise ResonanceEthicsError(
-            f"REL-1.0 violation: forbidden pattern detected in domain '{domain}'"
-            )
+        raise ResonanceEthicsError(f"Forbidden pattern in domain: '{domain}'")
             
     # Contextual analysis for ambiguous terms
     ambiguous_terms = {
         "resonance": "resonance_research" in ALLOWED_DOMAINS,
         "phase": "phase_detection" in ALLOWED_DOMAINS,
-        "quantum": "quantum_computing" in ALLOWED_DOMAINS
+        "quantum": "quantum_computing" in ALLOWED_DOMAINS,
+        "temporal": "temporal_paradox_prevention" in ALLOWED_DOMAINS,
+        "neuro": "neuroscience" in ALLOWED_DOMAINS
     }
     
     for term, is_allowed in ambiguous_terms.items():
         if term in d:
             if is_allowed:
                 return  # Benign usage in allowed context
-            raise ResonanceEthicsError(
-                f"Ambiguous term '{term}' in non-allowed context: '{domain}'"
-            )
+            raise ResonanceEthicsError(f"Ambiguous term '{term}' in domain: '{domain}'")
             
     # If not explicitly allowed, treat as disallowed
-    raise ResonanceEthicsError(
-        f"REL-1.0 violation: domain '{domain}' is not in allowed list"
-    )
+    raise ResonanceEthicsError(f"Domain not allowed: '{domain}'")
 
 def check_metadata(meta: dict[str, Any] | None):
-    if not meta:
+    if meta is None:
         return
     _deep_meta_check(meta)
-
-# Contextual analysis stubs (for future implementation)
-def contextual_analysis(domain: str, vector: np.ndarray) -> bool:
-    """Future: ML-powered context analysis"""
-    # Placeholder for:
-    # 1. Vector pattern analysis
-    # 2. Semantic context evaluation
-    # 3. Dual-use detection
-    return True  # Always passes for now
-
-def detect_fragmentation_attack(text: str) -> bool:
-    """Detect fragmented forbidden terms"""
-    # Placeholder for:
-    # 1. Term recombination analysis
-    # 2. Steganography detection
-    # 3. Semantic segmentation defense
-    return False  # No detection for now
+    
+def temporal_integrity_check(date: datetime):
+    """Check for temporal anomalies"""
+    now = datetime.now()
+    if date > now + relativedelta(minutes=5):  # Allow small clock drift
+        raise ResonanceEthicsError("Future-dated record detected")
+    if date < now - relativedelta(years=10):
+        raise ResonanceEthicsError("Ancient record detected")
