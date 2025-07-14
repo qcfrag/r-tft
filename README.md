@@ -36,7 +36,7 @@ To handle noise and systemic drift, the method uses:
 
 ## R-TFT_Complete.pdf
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15872338.svg)](https://doi.org/10.5281/zenodo.15872338) Real-Time Fractional Tracking (R-TFT)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15872338.svg)](https://doi.org/10.5281/zenodo.15872338)
 
 - Contain the full published paper.
   
@@ -49,7 +49,7 @@ To handle noise and systemic drift, the method uses:
 
 ## R_TFT_Multi_Vector.pdf
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15877517.svg)](https://doi.org/10.5281/zenodo.15877517) Real-Time Fractional Tracking (R-TFT): Multi-Vector
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15877517.svg)](https://doi.org/10.5281/zenodo.15877517)
 
 - Extends the R-TFT framework to support multi-vector resonance tracking
 - Captures simultaneous phase locks across multiple resonance templates
@@ -59,7 +59,7 @@ To handle noise and systemic drift, the method uses:
 
 ## R_TFT_Dimensionality_Detection_Experiment.pdf
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15857168.svg)](https://doi.org/10.5281/zenodo.15857168) R-TFT: Emergent Dimensionality from Golden Ratio Attractor 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15857168.svg)](https://doi.org/10.5281/zenodo.15857168)
 
 - Experimental demonstration of R-TFT’s ability to detect emergent structure
 - Shows golden ratio resonance behavior from a chaotic attractor
