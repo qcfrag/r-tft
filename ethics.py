@@ -17,8 +17,11 @@ FORBIDDEN = (
 
 ALLOWED_DOMAINS = {
     "scientific", "educational", "philosophical",
-    "astrophysics", "neuroscience",
-    # …add positive labels here…
+    "astrophysics", "neuroscience", "quantum_computing",
+    "orbital_mechanics", "cmb_analysis", "dynamical_systems",
+    "resonance_research", "chaos_theory", "mathematical_physics",
+    "consciousness_studies", "cosmology", "neural_oscillations",
+    "phase_detection", "hamiltonian_systems"
 }
 
 class ResonanceEthicsError(RuntimeError):
