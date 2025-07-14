@@ -1,13 +1,5 @@
 **You may contact me by email at qcfrag@gmail.com**
 
-## 📄 Citation & Download
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15872338.svg)](https://doi.org/10.5281/zenodo.15872338) Real-Time Fractional Tracking (R-TFT)
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15877517.svg)](https://doi.org/10.5281/zenodo.15877517) Real-Time Fractional Tracking (R-TFT): Multi-Vector
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15857168.svg)](https://doi.org/10.5281/zenodo.15857168) R-TFT: Emergent Dimensionality from Golden Ratio Attractor 
-
 ## 📘 Summary
 R-TFT is a real-time method for detecting and tracking resonance in arbitrary n-body systems by projecting angular velocity vectors onto fractional resonance templates. This enables detection of non-integer locking behaviors, applicable from planetary orbits to quantum systems.
 
@@ -42,17 +34,23 @@ To handle noise and systemic drift, the method uses:
 | **Computational Complexity**       | O(n log n)                | ✅ O(1) per step           |
 | **Real-Time System Deployment**    | Poor (batch)              | ✅ Excellent (live-ready)  |
 
-
 ## R-TFT_Complete.pdf
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15872338.svg)](https://doi.org/10.5281/zenodo.15872338) Real-Time Fractional Tracking (R-TFT)
+
 - Contain the full published paper.
   
 ## r_tft.py
+
 - Core Python implementation of the R-TFT algorithm
 - Includes real-time fractional resonance metric
 - Lightweight: only requires NumPy
 - Ready for plug-in to any orbital, neural, or quantum system
 
 ## R_TFT_Multi_Vector.pdf
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15877517.svg)](https://doi.org/10.5281/zenodo.15877517) Real-Time Fractional Tracking (R-TFT): Multi-Vector
+
 - Extends the R-TFT framework to support multi-vector resonance tracking
 - Captures simultaneous phase locks across multiple resonance templates
 - Enables detection of nested, overlapping, or mixed-domain resonances
@@ -60,14 +58,19 @@ To handle noise and systemic drift, the method uses:
 - Includes visual benchmarks and mathematical justification
 
 ## R_TFT_Dimensionality_Detection_Experiment.pdf
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15857168.svg)](https://doi.org/10.5281/zenodo.15857168) R-TFT: Emergent Dimensionality from Golden Ratio Attractor 
+
 - Experimental demonstration of R-TFT’s ability to detect emergent structure
 - Shows golden ratio resonance behavior from a chaotic attractor
 - Useful for understanding multi-dimensional applications
 
 ## deepseek_analysis_log.txt
+
 - Contain validation of R-TFT across physics, quantum, neural, and chaos domains. 
 - This log contains symbolic validation of the R-TFT framework across physics, quantum, neural, and dynamical domains using DeepSeek-Math.
 - Results reflect alignment between theoretical predictions and symbolic inference across quantum, orbital, and neural systems.
 
 ## license.txt
+
 - Resonance Ethics License (REL-1.0)  
