@@ -1,7 +1,6 @@
 
 
 You may contact me by email at qcfrag@gmail.com
-- Genuine interest, no publicity or destructive talks, not here to get known ty.
 
 ## 📘 Summary
 R-TFT is a real-time method for detecting and tracking resonance in arbitrary n-body systems by projecting angular velocity vectors onto fractional resonance templates. This enables detection of non-integer locking behaviors, applicable from planetary orbits to quantum systems.
