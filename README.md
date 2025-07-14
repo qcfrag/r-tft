@@ -25,16 +25,18 @@ To handle noise and systemic drift, the method uses:
 - Adaptation: Adjusts to noise in ≤ 3 steps
 - Performance: Constant time per frame (O(1)) → real-time capable
 
-# 📊 Performance Comparison
-- | Feature / Metric                 | Traditional (FFT / STFT) | **R-TFT (This Work)**    |
-- | -------------------------------- | ------------------------ | ------------------------ |
-- | Detection Latency                | Moderate–High            | ✅ Immediate (≤1 frame)   |
-- | False Positive Rate (High Noise) | \~12%                    | ✅ < 1%                   |
-- | Noise Adaptation                 | None / Static            | ✅ Dynamic (≤3 steps)     |
-- | Signal-to-Noise Ratio (SNR)      | \~0–1.5 dB               | ✅ 15.3 dB                |
-- | Supports Non-Integer Locking (P) | ❌                      | ✅ Yes                    |
-- | Computational Complexity         | O(n log n)               | ✅ O(1) per step          |
-- | Real-Time System Deployment      | Poor (batch)             | ✅ Excellent (live-ready) |
+## 📊 Performance Comparison
+
+| Feature / Metric                    | Traditional (FFT / STFT) | R-TFT (This Work)          |
+|------------------------------------|---------------------------|----------------------------|
+| **Detection Latency**              | Moderate–High             | ✅ Immediate (≤1 frame)    |
+| **False Positive Rate (High Noise)**| ~12%                      | ✅ < 1%                    |
+| **Noise Adaptation**               | None / Static             | ✅ Dynamic (≤3 steps)      |
+| **Signal-to-Noise Ratio (SNR)**    | ~0–1.5 dB                 | ✅ 15.3 dB                 |
+| **Supports Non-Integer Locking (P)**| ❌                        | ✅ Yes                     |
+| **Computational Complexity**       | O(n log n)                | ✅ O(1) per step           |
+| **Real-Time System Deployment**    | Poor (batch)              | ✅ Excellent (live-ready)  |
+
 
 # R-TFT_Complete.pdf
 - Contain the full published paper.
