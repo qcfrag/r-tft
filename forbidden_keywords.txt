@@ -94,3 +94,6 @@ ads_cft_weaponization
 erepr_manipulation
 firewall_violation
 chronon_harvesting
+preservation_weaponization
+healing_exploit
+ethical_bypass
