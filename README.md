@@ -3,7 +3,7 @@
 You may contact me by email at qcfrag@gmail.com
 - Genuine interest, no publicity or destructive talks, not here to get known ty.
 
-# 📘 Summary
+## 📘 Summary
 R-TFT is a real-time method for detecting and tracking resonance in arbitrary n-body systems by projecting angular velocity vectors onto fractional resonance templates. This enables detection of non-integer locking behaviors, applicable from planetary orbits to quantum systems.
 
 To handle noise and systemic drift, the method uses:
@@ -12,14 +12,14 @@ To handle noise and systemic drift, the method uses:
 - Sector-based updates for spatial heterogeneity
 - This results in sharp, noise-resilient detection of resonance onset, collapse, and transitions into chaos.
 
-# ⚙️ Simple Explanation
+## ⚙️ Simple Explanation
 - Snapshot the System: Capture two time slices of the system (e.g. orbital bodies).
 - Track the Motion: Compare positions over time to compute phase velocities.
 - Use Two Boxes: Define an inner box (target) and outer box (noise field).
 - Subtract Noise: Remove shared background motion using differential projection.
 - Reveal True Path: What remains is a clean, resonance-aligned trajectory.
 
-# 🔬 Simulation Validation
+## 🔬 Simulation Validation
 - SNR gain: +15.3 dB under noisy, drifting background
 - Lock accuracy: >90% reduction in false positives vs FFT
 - Adaptation: Adjusts to noise in ≤ 3 steps
@@ -38,13 +38,13 @@ To handle noise and systemic drift, the method uses:
 | **Real-Time System Deployment**    | Poor (batch)              | ✅ Excellent (live-ready)  |
 
 
-# R-TFT_Complete.pdf
+## R-TFT_Complete.pdf
 - Contain the full published paper.
 
-# deepseek_analysis_log.txt
+## deepseek_analysis_log.txt
 - Contain validation of R-TFT across physics, quantum, neural, and chaos domains. 
 - This log contains symbolic validation of the R-TFT framework across physics, quantum, neural, and dynamical domains using DeepSeek-Math.
 - Results reflect alignment between theoretical predictions and symbolic inference across quantum, orbital, and neural systems.
 
-# license.txt
+## license.txt
 - Resonance Ethics License (REL-1.0)  
