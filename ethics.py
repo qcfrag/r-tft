@@ -1,9 +1,8 @@
 from datetime import datetime
+import pathlib
 
 # Date when forbidden lists were last updated
-ethics_update_date = datetime(2025, 7, 14)  # ← Set this to your latest revision date
-
-import pathlib
+ethics_update_date = datetime(2025, 7, 14)
 
 BLOCK_DIR = pathlib.Path(__file__).with_suffix('').parent
 
@@ -29,25 +28,36 @@ ALLOWED_DOMAINS = {
     "phase_detection", "hamiltonian_systems"
 }
 
-class ResonanceEthicsError(RuntimeError):
+class ResonanceEthicsError(Exception):
     pass
 
 def check_domain(domain: str):
     d = (domain or "").lower()
-
-    # 1) explicit whitelist check (positive allow)
+    
+    # Explicit whitelist check
     if d in ALLOWED_DOMAINS:
         return
-
-    # 2) full-string and substring block
+        
+    # Full-string and substring block
     for bad in FORBIDDEN:
         if bad and bad in d:
             raise ResonanceEthicsError(
-                f"REL-1.0 violation: '{bad}' matched in domain '{domain}'. "
-                "Operation aborted."
+                f"REL-1.0 violation: '{bad}' matched in domain '{domain}'"
             )
-
-    # 3) if not explicitly allowed, treat as disallowed
+            
+    # If not explicitly allowed, treat as disallowed
     raise ResonanceEthicsError(
-        f"REL-1.0 violation: domain '{domain}' is not in allowed list."
+        f"REL-1.0 violation: domain '{domain}' is not in allowed list"
     )
+
+def check_metadata(meta: dict[str, Any] | None):
+    if not meta:
+        return
+        
+    for key, val in meta.items():
+        sval = str(val).lower()
+        for bad in FORBIDDEN:
+            if bad in sval:
+                raise ResonanceEthicsError(
+                    f"Metadata violation: '{bad}' detected in '{key}' value"
+                )
