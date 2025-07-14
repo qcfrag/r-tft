@@ -1,19 +1,38 @@
-The Resonance Ethics License (REL-1.0)  
+THE RESONANCE ETHICS LICENSE (REL-1.0)
 Author: Éric Lanctôt-Rivest
+Version Date: July 14, 2025
 
-This work is made publicly available for peaceful, scientific, educational, and non-exploitative use only.  
-Any application of this work—code, theory, or derivative research—is strictly prohibited in the following domains:
+This work—its code, theory, data, simulations, and derived outputs—is released to the world for the benefit of all sentient life. It is bound by the following inviolable terms:
 
-• Military or autonomous weapons  
-• Surveillance, behavioral profiling, or brainwave monitoring of populations  
-• Governmental or corporate systems for mass control or coercion  
-• Any use intended to exploit, manipulate, or dominate sentient beings  
+🛡️ PERMITTED USES
+Use of this work is permitted only in explicitly approved domains listed in `ethics/allowed_domains.txt`. These include (but are not limited to):
+- Scientific research, educational purposes, philosophical inquiry
+- Consciousness modeling, orbital mechanics, neural and quantum studies
+- Projects aligned with healing, sustainability, and global cooperation
 
-Permitted use includes:  
-✓ Academic research  
-✓ Open scientific development  
-✓ Philosophical or spiritual study  
-✓ Chaos theory, orbital resonance, and consciousness modeling  
+Refer to `allowed_domains.txt` for the complete and evolving list of accepted domains.
 
-Violation of these terms constitutes ethical misuse.  
-Let this remain a gift to human unity, not its downfall.
+🚫 FORBIDDEN USES
+Use is strictly prohibited in any context involving coercion, manipulation, or weaponization.
+This includes—but is not limited to—any domain listed in:
+
+- forbidden_domains.txt`
+- forbidden_keywords.txt`
+- forbidden_companies.txt`
+
+These files are definitive. Any use outside these constraints constitutes ethical misuse.
+
+🔏 EMBEDDED SAFEGUARDS
+All files in this bundle, including `RME.py` and `ethics.py`, include live enforcement of this license through:
+
+- Real-time vector weaponization detection
+- Metadata integrity checks (e.g., homoglyphs, term fragmentation)
+- Temporal anomaly detection
+- Compliance with all terms defined in the `ethics/` directory
+
+These systems may block, refuse, or terminate unauthorized use dynamically.
+
+🕊️ INTENT
+Let this work remain a sanctuary of peace, insight, and shared evolution.
+Use it with reverence. Defend it with care.
+
