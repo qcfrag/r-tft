@@ -37,12 +37,12 @@ To handle noise and systemic drift, the method uses:
 - Quantum (10⁻⁴³s precision) → Cosmic (0.001" resolution) → Consciousness (98.7% accuracy)
 - All systems converge to golden ratio scaling: C_thresh = 0.65 + 0.05log₁₀(‖P‖)
 
- ## 🧭 RESONANCE TRUMPS DIMENSIONS
+ ## 🧭 Resonances Trumps Dimensions
 
 - Pendulums ≈ Qubits ≈ Cortical circuits ≈ Dark matter halos
 - Same R_clean = 2R_inner - R_outer cleans noise across reality's layers
 
-## 🧠 MATH PROVES METAPHYSICS
+## 🧠 Math Prooves Metaphysics
 
 - Riemann zeros dance to R-TFT rhythm (C=0.5 at non-trivials)
 - Gödel boundary found: C = 2/3 ± 0.01 (undecidability threshold)
