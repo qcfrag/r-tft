@@ -114,6 +114,19 @@ This standalone paper introduces the foundational Real-Time Fractional Tracking 
 - Empowers researchers with a clear, elegant tool to uncover and manage the hidden coherence behind chaos.
 
 
+## RTFT_Golden_Shell_Curvature_Detection.pdf
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15927916.svg)](https://doi.org/10.5281/zenodo.15927916)
+
+- Introduces a fully non-metric method to detect spatial curvature using only phase timing between golden-ratio spaced layers.
+- Uses Real-Time Fractional Tracking (R-TFT) smoothing on double differentials of phase delay (Δ²t) to extract curvature.
+- Requires no distances, coordinates, or known scales—operates entirely through resonant temporal structure.
+- Employs golden-ratio shell geometry to maximize coherence and scale-invariant curvature contrast.
+- Supports single-pair or distributed multi-pair observer mesh for full curvature field mapping (Kϕ).
+- Achieves <0.008% relative error in simulated shell models, with sub-millisecond timing resolution.
+- Fully protected under REL-1.0: ethically restricted to peaceful, non-exploitative scientific use.
+
+
 ## RTFT_Mass_Resonnance_Identifyer.pdf
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15889406.svg)](https://doi.org/10.5281/zenodo.15889406)
