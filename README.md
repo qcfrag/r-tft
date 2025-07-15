@@ -113,6 +113,20 @@ This standalone paper introduces the foundational Real-Time Fractional Tracking 
 - Includes embedded ethical safeguards to prevent misuse and weaponization.
 - Empowers researchers with a clear, elegant tool to uncover and manage the hidden coherence behind chaos.
 
+
+## RTFT_Mass_Resonnance_Identifyer.pdf
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15889406.svg)](https://doi.org/10.5281/zenodo.15889406)
+
+- Introduces a non-invasive scanner for atomic matter detection using cluster-level resonance profiling.
+- Applies mass-weighted, bandwidth-averaged R-TFT to extract isotope signatures without requiring destructive ionization.
+- Utilizes relativistic intensity scaling and φ-tuned resonance bandwidths to enhance selectivity and robustness.
+- Supports cross-domain field usage: recycling, metallurgy, geology, humanitarian landmine detection.
+- Avoids nuclear weaponization risk by bypassing single-atom resolution.
+- Fully ethical under REL-1.0, protected by forbidden_domains.txt.
+- Turns mass clusters into coherent resonance fingerprints with sub-millisecond response time.
+
+
 ## R_TFT_Dimensional_Memory.pdf
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15882324.svg)](https://doi.org/10.5281/zenodo.15882324)
