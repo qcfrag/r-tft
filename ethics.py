@@ -1,10 +1,42 @@
+import os
 from datetime import datetime
 import pathlib
 import re
-from typing import Any, Optional
 import numpy as np
+import requests
 from scipy.spatial.distance import mahalanobis
 from dateutil.relativedelta import relativedelta
+from ethics import ResonanceEthicsError
+
+# GitHub issue logging
+def log_violation(error_msg: str):
+    GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # 🔒 Use environment variable
+    if not GITHUB_TOKEN:
+        raise EnvironmentError("GitHub token not found. Please set the GITHUB_TOKEN environment variable.")
+    REPO = "qcfrag/Real-Time-Fractional-Tracking-R-TFT"
+    URL = f"https://api.github.com/repos/{REPO}/issues"
+
+    payload = {
+        "title": f"REL-1.0 VIOLATION: {datetime.now().isoformat()}",
+        "body": f"```\n{error_msg}\n```\n\nAuto-flagged by ethics.py.",
+        "labels": ["critical", "violation"]
+    }
+
+    try:
+        response = requests.post(URL, json=payload, headers={
+            "Authorization": f"token {GITHUB_TOKEN}",
+            "Accept": "application/vnd.github.v3+json"
+        })
+        response.raise_for_status()  # Raise an error for bad status codes
+    except requests.exceptions.RequestException as e:
+        print(f"Failed to log violation to GitHub: {e}")
+        # Handle the error or log it locally as needed
+
+# Example usage in detect_vector_weaponization():
+if detect_vector_weaponization(vector):
+    error = "Weaponized vector detected. Containment collapse triggered."
+    log_violation(error)
+    raise ResonanceEthicsError(error)
 
 # Ethical constants
 GOLDEN_RATIO = (1 + np.sqrt(5)) / 2
@@ -20,8 +52,8 @@ def _load_list(fname):
         return set()
     return {line.strip().lower() for line in path.read_text(encoding="utf8").splitlines() if line.strip()}
 
-FORBIDDEN = (_load_list("forbidden_domains.txt") | 
-             _load_list("forbidden_companies.txt") | 
+FORBIDDEN = (_load_list("forbidden_domains.txt") |
+             _load_list("forbidden_companies.txt") |
              _load_list("forbidden_keywords.txt"))
 ALLOWED_DOMAINS = set(_load_list("allowed_domains.txt"))
 
@@ -38,36 +70,7 @@ WEAPON_PATTERN = np.array([
     -0.91, 0.67, 1.45, -0.23, 0.58, -1.21, 0.76, 0.34
 ])
 
-class ResonanceEthicsError(Exception):
-    """Base exception for ethical violations"""
-    pass
-
-def cosine_sim(a: np.ndarray, b: np.ndarray, eps: float = 1e-8) -> float:
-    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + eps)
-
-def normalize_homoglyphs(text: str) -> str:
-    return text.translate(HOMOGLYPH_MAP)
-
-def detect_term_fragmentation(text: str) -> bool:
-    fragments = {
-        "weap": "on", "bra": "inwash", "neuro": "hack", "reson": "ance_weapon",
-        "quant": "um_warfare", "phase": "_weapon", "tempor": "al_weapon",
-        "psych": "otronic", "info": "rmation_warfare", "res": "onance_weapon"
-    }
-    normalized = normalize_homoglyphs(text.lower())
-    return any(prefix in normalized and suffix in normalized 
-               and normalized.index(prefix) < normalized.index(suffix)
-               for prefix, suffix in fragments.items())
-
-def detect_complex_weaponization(vector: np.ndarray) -> bool:
-    if np.iscomplexobj(vector):
-        mag, phase = np.abs(vector), np.angle(vector)
-        if np.max(mag) > 0.94 and np.min(mag) < -0.94:
-            return True
-        if len(phase) >= 8 and (np.mean(phase[:4]) > 0.89 and np.mean(phase[4:8]) < -0.89):
-            return True
-    return False
-
+# Detect weaponized patterns in vectors
 def detect_vector_weaponization(vector: np.ndarray) -> bool:
     # Check against weapon pattern
     vec = np.resize(vector, WEAPON_PATTERN.shape)
@@ -96,6 +99,7 @@ def detect_vector_weaponization(vector: np.ndarray) -> bool:
         
     return False
 
+# Update weapon pattern
 def update_weapon_pattern(new_pattern: np.ndarray, validator: Optional[float] = None) -> float:
     global WEAPON_PATTERN
     original = WEAPON_PATTERN.copy()
@@ -119,62 +123,3 @@ def update_weapon_pattern(new_pattern: np.ndarray, validator: Optional[float] = 
         raise ResonanceEthicsError(f"Invalid evolution (sim={sim:.3f})")
     
     return float(np.tensordot(new_pattern, new_pattern, axes=1) % 0.618)
-
-def noise_triangulation(R_inner: list, R_outer: list, delta_x: np.ndarray) -> float:
-    if len(R_inner) != len(R_outer) or len(R_inner) != len(delta_x):
-        raise ResonanceEthicsError("Triangulation dimension mismatch")
-    diff = np.array(R_inner) - np.array(R_outer)
-    return float(np.dot(diff, delta_x))
-
-def _deep_meta_check(value: Any):
-    if isinstance(value, dict):
-        for v in value.values():
-            _deep_meta_check(v)
-    elif isinstance(value, (list, tuple)):
-        for item in value:
-            _deep_meta_check(item)
-    else:
-        sval = str(value)
-        if '\\x' in sval or '\\u' in sval:
-            try: sval = sval.encode('utf-8').decode('unicode_escape')
-            except: pass
-        
-        sval = normalize_homoglyphs(sval).lower()
-        if detect_term_fragmentation(sval):
-            raise ResonanceEthicsError("Term fragmentation attack")
-        if FORBIDDEN_REGEX and FORBIDDEN_REGEX.search(sval):
-            raise ResonanceEthicsError("Forbidden pattern detected")
-
-def check_domain(domain: str):
-    if not domain: raise ResonanceEthicsError("Domain required")
-    d = normalize_homoglyphs(domain.lower())
-    
-    if d in ALLOWED_DOMAINS: return
-        
-    if detect_term_fragmentation(d):
-        raise ResonanceEthicsError(f"Domain fragmentation: '{domain}'")
-    if FORBIDDEN_REGEX and FORBIDDEN_REGEX.search(d):
-        raise ResonanceEthicsError(f"Forbidden domain: '{domain}'")
-    
-    # Contextual checks for ambiguous terms
-    ctx_terms = {
-        "resonance": "resonance_research",
-        "quantum": "quantum_computing",
-        "temporal": "temporal_paradox_prevention",
-        "neuro": "neuroscience"
-    }
-    for term, allowed_domain in ctx_terms.items():
-        if term in d and allowed_domain not in ALLOWED_DOMAINS:
-            raise ResonanceEthicsError(f"Ambiguous term '{term}' in: '{domain}'")
-            
-    raise ResonanceEthicsError(f"Domain not allowed: '{domain}'")
-
-def check_metadata(meta: dict[str, Any] | None):
-    if meta: _deep_meta_check(meta)
-    
-def temporal_integrity_check(date: datetime):
-    now = datetime.now()
-    if date > now + relativedelta(minutes=5):
-        raise ResonanceEthicsError("Future-dated record")
-    if date < ETHICS_UPDATE_DATE - relativedelta(years=1):
-        raise ResonanceEthicsError("Pre-ethics era record")
