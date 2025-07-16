@@ -73,7 +73,7 @@ To handle noise and systemic drift, the method uses:
 
 ## Esthethics_and_Ethics_of_Phi.pdf
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15972131.svg)](https://doi.org/10.5281/zenodo.15972131)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15981109.svg)](https://doi.org/10.5281/zenodo.15981109)
 
 - Explores the recursive identity of the golden ratio 
 - 𝜙=1+1/𝜙   ϕ=1+1/ϕ  Demonstrates how 𝜙ϕ-recursion emerges in physical, neural, and aesthetic systems
