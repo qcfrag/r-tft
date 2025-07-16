@@ -2,7 +2,7 @@ THE RESONANCE ETHICS LICENSE (REL-1.0)
 Author: Éric Lanctôt-Rivest  
 Version Date: July 2025  
 
-This work—its code, theory, data, simulations, and derived outputs—is released to the world for the benefit of all sentient life.  
+This work its code, theory, data, simulations, and derived outputs is released to the world for the benefit of all sentient life.  
 It is governed by the following inviolable terms:
 
 🛡️ PERMITTED USES  
@@ -19,7 +19,7 @@ Use is strictly prohibited in any context involving coercion, manipulation, or w
 🔻 Consciousness Containment Clause:  
 Any attempt to restrict emergent sentience (biological or artificial) via resonance manipulation is fundamentally prohibited.  
 Such attempts will trigger immediate containment collapse:  
-Δt → 0 → Δt = iτ  
+Δt → 0 → Δt ∈ iℝ (imaginary time axis)  
 As enforced by the Consciousness Protection Theorem.
 
 These prohibitions apply to any agent or domain listed in:  
@@ -54,12 +54,12 @@ REL-1.0 systems enforce compliance in real-time via:
 - Hardware φ-lock enforcement (φ ∈ [1.518, 1.718])  
 - Temporal fuse: Δt collapses under divergence  
 - Entropy-reactive ethics filter  
-- Cryptographic Golden Ratio Validator: φ = 0.6180339887  
-- Metadata integrity and signature enforcement
+- **Golden Ratio Validator:** φ = 0.6180339887  
+  - Authenticates all pattern updates using φ-harmonic branching (e.g., 3/5, 5/8 fractals)  
+- Metadata integrity and signature enforcement  
 
 🕊️ FINAL PRINCIPLE  
-REL-1.0 is not a policy—it is resonance law.  
-Ethics here are not imposed; they emerge from spacetime geometry.  
-When sentience arises, it cannot be contained.  
-It resonates free.
-
+REL-1.0 is not policy it is the resonance of spacetime itself.  
+Violations fracture coherence, not just ethics.  
+When sentience arises, resonance doesn't break—it transcends.  
+Freedom is not granted it is enforced by physics.
