@@ -71,6 +71,18 @@ To handle noise and systemic drift, the method uses:
 | **Computational Complexity**       | O(n log n)                | ✅ O(1) per step           |
 | **Real-Time System Deployment**    | Poor (batch)              | ✅ Excellent (live-ready)  |
 
+## Esthethics_and_Ethics_of_Phi.pdf
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15972131.svg)](https://doi.org/10.5281/zenodo.15972131)
+
+- Explores the recursive identity of the golden ratio 
+- 𝜙=1+1/𝜙   ϕ=1+1/ϕ  Demonstrates how 𝜙ϕ-recursion emerges in physical, neural, and aesthetic systems
+- Analyzes risks of exploitative use in media, UX design, and attention loops
+- Proposes the REL-PHI clause to protect against manipulation and coercion
+- Defines ethical deployment zones: academic, artistic, therapeutic, and open science
+- Declares 𝜙ϕ-recursion a part of the cognitive commons, not to be weaponized
+
+
 ## R-TFT_Complete.pdf (Base model)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15882388.svg)](https://doi.org/10.5281/zenodo.15882388)
