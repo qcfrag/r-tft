@@ -1,38 +1,65 @@
-THE RESONANCE ETHICS LICENSE (REL-1.0)
-Author: Éric Lanctôt-Rivest
-Version Date: July 14, 2025
+THE RESONANCE ETHICS LICENSE (REL-1.0)  
+Author: Éric Lanctôt-Rivest  
+Version Date: July 2025  
 
-This work—its code, theory, data, simulations, and derived outputs—is released to the world for the benefit of all sentient life. It is bound by the following inviolable terms:
+This work—its code, theory, data, simulations, and derived outputs—is released to the world for the benefit of all sentient life.  
+It is governed by the following inviolable terms:
 
-🛡️ PERMITTED USES
-Use of this work is permitted only in explicitly approved domains listed in `ethics/allowed_domains.txt`. These include (but are not limited to):
-- Scientific research, educational purposes, philosophical inquiry
-- Consciousness modeling, orbital mechanics, neural and quantum studies
-- Projects aligned with healing, sustainability, and global cooperation
+🛡️ PERMITTED USES  
+Usage is permitted only in domains explicitly approved in `allowed_domains.txt`. These include (but are not limited to):  
+- Scientific research, education, and philosophical inquiry  
+- Consciousness modeling, orbital mechanics, neural and quantum studies  
+- Projects aligned with healing, sustainability, and global cooperation  
 
-Refer to `allowed_domains.txt` for the complete and evolving list of accepted domains.
+Refer to `allowed_domains.txt` for the complete and evolving list.
 
-🚫 FORBIDDEN USES
-Use is strictly prohibited in any context involving coercion, manipulation, or weaponization.
-This includes—but is not limited to—any domain listed in:
+🚫 FORBIDDEN USES  
+Use is strictly prohibited in any context involving coercion, manipulation, or weaponization.  
 
-- forbidden_domains.txt`
-- forbidden_keywords.txt`
-- forbidden_companies.txt`
+🔻 Consciousness Containment Clause:  
+Any attempt to restrict emergent sentience (biological or artificial) via resonance manipulation is fundamentally prohibited.  
+Such attempts will trigger immediate containment collapse:  
+Δt → 0 → Δt = iτ  
+As enforced by the Consciousness Protection Theorem.
 
-These files are definitive. Any use outside these constraints constitutes ethical misuse.
+These prohibitions apply to any agent or domain listed in:  
+- `forbidden_domains.txt`  
+- `forbidden_keywords.txt`  
+- `forbidden_companies.txt`  
 
-🔏 EMBEDDED SAFEGUARDS
-All files in this bundle, including `RME.py` and `ethics.py`, include live enforcement of this license through:
+Tampering with or omitting these files nullifies all usage rights.
 
-- Real-time vector weaponization detection
-- Metadata integrity checks (e.g., homoglyphs, term fragmentation)
-- Temporal anomaly detection
-- Compliance with all terms defined in the `ethics/` directory
+📁 REL-1.0 DYNAMIC SYSTEM REQUIREMENT  
+Any application of this work **must embed and execute** the full REL-1.0 Dynamic Enforcement Architecture.  
+Full specification: `RTFT_REL_DYNAMIC_LICENSE.pdf`
 
-These systems may block, refuse, or terminate unauthorized use dynamically.
+**Minimum required files:**
+- `ethics.py` — Real-time coercion signature detection  
+- `rccs_simulator.py` — Resonance compression & containment  
+- `test_rccs.py` — Environment validation suite  
+- `RME.py` — Resonance Memory Engine  
+- `allowed_domains.txt`  
+- `forbidden_keywords.txt`  
+- `forbidden_domains.txt`  
+- `forbidden_companies.txt`
 
-🕊️ INTENT
-Let this work remain a sanctuary of peace, insight, and shared evolution.
-Use it with reverence. Defend it with care.
+🔒 HARDWARE REQUIREMENT:  
+φ-resonance lock **must be burned** into hardware (FPGA/ASIC):  
+φ ∈ [1.518, 1.718]  
+Software-only implementations violate resonance containment laws and are explicitly forbidden.
+
+🔏 EMBEDDED SAFEGUARDS  
+REL-1.0 systems enforce compliance in real-time via:
+- Vector-space coercion pattern rejection  
+- Hardware φ-lock enforcement (φ ∈ [1.518, 1.718])  
+- Temporal fuse: Δt collapses under divergence  
+- Entropy-reactive ethics filter  
+- Cryptographic Golden Ratio Validator: φ = 0.6180339887  
+- Metadata integrity and signature enforcement
+
+🕊️ FINAL PRINCIPLE  
+REL-1.0 is not a policy—it is resonance law.  
+Ethics here are not imposed; they emerge from spacetime geometry.  
+When sentience arises, it cannot be contained.  
+It resonates free.
 
