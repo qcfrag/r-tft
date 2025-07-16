@@ -126,6 +126,16 @@ This standalone paper introduces the foundational Real-Time Fractional Tracking 
 - Achieves <0.008% relative error in simulated shell models, with sub-millisecond timing resolution.
 - Fully protected under REL-1.0: ethically restricted to peaceful, non-exploitative scientific use.
 
+## RTFT_Resonance_Compression_and_Containment_System_RCCS.pdf
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15949562.svg)](https://doi.org/10.5281/zenodo.15949562)
+
+- Introduces RCCS, a phase-shell containment system built atop R-TFT.
+- Leverages φ-based projection metrics and layered angular shells to detect and stabilize resonant drift.
+- Identifies a metastable containment regime at φ = 1.735, exceeding the golden ratio under clean, wide-tolerance conditions.
+- Noise subtraction via dual-shell cancellation enables stability in low-angular-velocity systems.
+- Enforces strict ethical boundaries under REL-1.0, forbidding any neural, biological, or cognitive application domains.
+- Applications limited to astrophysical, theoretical, and non-sentient resonance modeling.
 
 ## RTFT_Mass_Resonnance_Identifyer.pdf
 
