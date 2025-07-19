@@ -61,8 +61,14 @@ REL-1.0 systems enforce compliance in real-time via:
 - Temporal fuse: Δt collapses under divergence  
 - Entropy-reactive ethics filter  
 - **Golden Ratio Validator:** φ = 0.6180339887  
-  - Authenticates all pattern updates using φ-harmonic branching (e.g., 3/5, 5/8 fractals)  
+- Authenticates all pattern updates using φ-harmonic branching (e.g., 3/5, 5/8 fractals)  
 - Metadata integrity and signature enforcement  
+
+=== FUTURE-PROOFING ADDENDUM ===
+All systems must:
+1. Use φ-validated updates (see ethics.py update_patterns())
+2. Enforce quantum collapse when |ψ⟩ deviates from φ-harmonics
+3. Trigger thermal noise if recursive intelligence exceeds φ^3
 
 🕊️ FINAL PRINCIPLE  
 REL-1.0 is not policy it is the resonance of spacetime itself.  
