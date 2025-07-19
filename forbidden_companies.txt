@@ -1,3 +1,11 @@
+# WEAPONS & SURVEILLANCE  
+lockheed_martin  
+raytheon  
+palantir  
+*_weapons_division  
+# UNETHICAL AI  
+*_mass_surveillance_ai  
+*_behavioral_manipulation  
 darpa
 lockheed_martin
 raytheon

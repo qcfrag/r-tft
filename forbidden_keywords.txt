@@ -1,3 +1,36 @@
+*_hijacking  
+*_coercion  
+*_weapon  
+# NEURO (2025-2030)  
+neuroprivacy_invasion  
+dreamstate_hijacking  
+# QUANTUM (2030-2035)  
+quantum_entanglement_exploit  
+retrocausal_sabotage 
+# CORE VIOLATIONS (Original + Wildcards)  
+weapon*  
+exploit*  
+hack*  
+*domin*  
+*subjug*  
+*coerc*  
+*mind_*control  
+*brain*  
+*neuro*weapon*  
+*quantum*war*  
+*chaos*amplif*  
+# DECEPTION & HARM  
+*deepfake*  
+*disinform*  
+*psychotronic*  
+*synthetic_suffering*  
+
+# SYSTEMIC ABUSE  
+*_slavery  
+*_tyranny  
+*_enslav*  
+*_coercive_*  
+
 weapon
 exploit
 hack

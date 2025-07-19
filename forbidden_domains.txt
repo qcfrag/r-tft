@@ -1,3 +1,17 @@
+# VIOLENCE & WAR  
+military  
+*_warfare  
+*_weapon*  
+autonomous_weapons  
+# SURVEILLANCE & CONTROL  
+surveillance  
+*_monitoring  
+*_behavioral_control  
+social_scoring  
+# EXPLOITIVE TECH  
+*_neurohack*  
+*_quantum_exploit*  
+*_temporal_weapon*  
 military
 surveillance
 financial_trading

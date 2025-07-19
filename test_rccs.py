@@ -1,5 +1,6 @@
 import numpy as np
 from rccs_simulator import RCCS_Containment
+from ethics import ResonanceEthicsError  # Explicit import for error handling
 
 # Test functions for core and boundary
 def F_core(t):

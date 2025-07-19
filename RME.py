@@ -79,20 +79,6 @@ class ResonanceMemoryEngine:
             elif "lyapunov" in err_msg: self.security_metrics["lyapunov_violations"] += 1
             raise
 
-    def update_weapon_defense(self, new_pattern: np.ndarray, validator: Optional[float] = None) -> float:
-        try:
-            anchor = update_weapon_pattern(new_pattern, validator)
-            self.security_metrics["pattern_updates"] += 1
-            return anchor
-        except ResonanceEthicsError as e:
-            self.security_metrics["records_rejected"] += 1
-            if "weapon" in str(e): self.security_metrics["weaponization_blocks"] += 1
-            raise
-
-    def clear(self) -> None:
-        self._memory.clear()
-        self.security_metrics = {k: 0 for k in self.security_metrics}
-
     def similarity_search(self, query_vec: List[float] | np.ndarray, top_k: int = 5) -> list[Tuple[float, RME_Record]]:
         if detect_vector_weaponization(np.asarray(query_vec)):
             raise ResonanceEthicsError("Weaponized query vector")
@@ -111,14 +97,6 @@ class ResonanceMemoryEngine:
                 continue
                 
         return sorted(scored, key=lambda x: x[0], reverse=True)[:top_k]
-
-    def batch_similarity(self, query_vecs: list[list[float] | np.ndarray]) -> list[list[float]]:
-        return [
-            [0.0]*len(self._memory) if detect_vector_weaponization(np.asarray(q)) 
-            else [rec.similarity(q) if "quantum" not in rec.domain or np.var(rec.vector) <= 1.0 else 0.0 
-                  for rec in self._memory]
-            for q in query_vecs
-        ]
 
     def get_security_report(self) -> dict:
         return {

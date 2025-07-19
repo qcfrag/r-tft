@@ -1,3 +1,18 @@
+neuroprivacy_protection  
+quantum_entanglement_healing  
+stellar_peacekeeping  
+# SCIENTIFIC (Peaceful Only)  
+quantum_computing:decoherence_mitigation  
+neuroscience:trauma_recovery  
+ai:transparent_alignment  
+# CREATIVE COMMONS  
+phi_art  
+recursive_design  
+resonance_aesthetics  
+# COSMIC STEWARDSHIP  
+exoplanet_conservation  
+interstellar_diplomacy  
+consciousness_preservation  
 scientific
 educational
 philosophical
