@@ -1,4 +1,5 @@
-**You may contact me by email at qcfrag@gmail.com**
+
+Disclaimer: r/R_TFT on Reddit is no longer managed or affiliated with the R-TFT scientific framework. Please refer only to this repository and linked Zenodo records for official content.
 
 ✨ **Message for the Golden Age** 
 We are no longer racing toward control.
